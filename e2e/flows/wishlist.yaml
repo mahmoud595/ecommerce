@@ -1,0 +1,32 @@
+appId: com.ecommerce.app
+---
+- launchApp
+- assertVisible: 'Products'
+- tapOn:
+    id: 'product-card-1'
+- assertVisible:
+    id: 'wishlist-button'
+- tapOn:
+    id: 'wishlist-button'
+- assertVisible:
+    id: 'heart-icon-filled'
+- tapOn:
+    id: 'back-button'
+- tapOn:
+    text: 'Wishlist'
+- assertVisible:
+    id: 'wishlist-list'
+- assertVisible:
+    id: 'product-card-1'
+- tapOn:
+    id: 'product-card-1'
+- tapOn:
+    id: 'wishlist-button'
+- assertVisible:
+    id: 'heart-icon-outline'
+- tapOn:
+    id: 'back-button'
+- tapOn:
+    text: 'Wishlist'
+- assertNotVisible:
+    id: 'product-card-1'

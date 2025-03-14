@@ -1,0 +1,16 @@
+appId: com.ecommerce.app
+---
+- launchApp
+- assertVisible: 'Products'
+- tapOn:
+    id: 'product-card-1'
+- assertVisible:
+    text: '$*'
+- assertVisible:
+    id: 'wishlist-button'
+- scroll
+- assertVisible:
+    text: '*rating*'
+- tapOn:
+    id: 'back-button'
+- assertVisible: 'Products'

@@ -1,0 +1,48 @@
+name: Maestro E2E Tests
+
+on:
+  push:
+    branches: [main]
+  pull_request:
+    branches: [main]
+
+jobs:
+  e2e-tests:
+    runs-on: macos-latest
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v3
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v3
+        with:
+          node-version: '18'
+          cache: 'yarn'
+
+      - name: Install dependencies
+        run: yarn install --frozen-lockfile
+
+      - name: Install Maestro
+        run: |
+          curl -Ls "https://get.maestro.mobile.dev" | bash
+          echo "$HOME/.maestro/bin" >> $GITHUB_PATH
+
+      - name: Setup Expo
+        uses: expo/expo-github-action@v8
+        with:
+          expo-version: latest
+          token: ${{ secrets.EXPO_TOKEN }}
+
+      - name: Build Expo app
+        run: |
+          yarn expo prebuild --platform ios
+          cd ios && pod install && cd ..
+
+      - name: Build iOS app
+        run: |
+          cd ios
+          xcodebuild -workspace PetShopEcommerce.xcworkspace -scheme PetShopEcommerce -configuration Debug -sdk iphonesimulator -derivedDataPath build
+
+      - name: Run Maestro tests
+        run: |
+          maestro test e2e/flows
