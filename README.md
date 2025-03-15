@@ -1,50 +1,143 @@
-# Welcome to your Expo app 👋
+# The Pet Shop E-Commerce App
 
-This is an [Expo](https://expo.dev) project created with [`create-expo-app`](https://www.npmjs.com/package/create-expo-app).
+## Introduction
 
-## Get started
+The Pet Shop is a modern e-commerce mobile application built with React Native and Expo. This app allows users to browse pet products, view detailed product information, and manage their wishlist. The application features a clean, intuitive user interface with smooth navigation and responsive design.
 
-1. Install dependencies
+## Features
+
+- **Product Browsing**: Browse through a catalog of products
+- **Product Details**: View detailed information about each product
+- **Wishlist Management**: Add/remove products to/from your wishlist
+- **Responsive Design**: Works seamlessly on various device sizes
+
+## Demo
+
+Check out our app demos:
+
+### Android Demo
+
+[![Android Demo](https://i.imgur.com/vKb2F1B.png)](https://streamable.com/0bi9u0)
+[View Android Demo](https://streamable.com/0bi9u0)
+
+### iOS Demo
+
+[![iOS Demo](https://i.imgur.com/vKb2F1B.png)](https://streamable.com/8b795p)
+[View iOS Demo](https://streamable.com/8b795p)
+
+## Technology Stack
+
+- **Framework**: [React Native](https://reactnative.dev/) with [Expo](https://expo.dev/)
+- **Navigation**: [Expo Router](https://docs.expo.dev/router/introduction/) (file-based routing)
+- **State Management**: [Redux Toolkit](https://redux-toolkit.js.org/) with [RTK Query](https://redux-toolkit.js.org/rtk-query/overview)
+- **UI Components**: Custom UI components with Expo's built-in libraries
+- **Testing**:
+  - Unit/Integration Testing: Jest with React Testing Library
+  - E2E Testing: Maestro
+
+## Project Structure
+
+- **app/**: Main application code with file-based routing
+  - **(tabs)/**: Tab-based navigation
+  - **(products)/**: Product listing and details screens
+- **components/**: Reusable UI components
+- **store/**: Redux store configuration
+  - **api/**: API services using RTK Query
+  - **slices/**: Redux slices for state management
+- **hooks/**: Custom React hooks
+- **styles/**: Global styles and theme configuration
+- **types/**: TypeScript type definitions
+- **assets/**: Images, fonts, and other static assets
+
+## Getting Started
+
+### Prerequisites
+
+- Node.js (v14 or later)
+- Yarn or npm
+- For Android development:
+  - Android Studio
+  - Android SDK
+- For iOS development:
+  - Xcode (Mac only)
+  - CocoaPods
+
+### Installation
+
+1. Clone the repository
 
    ```bash
+   git clone https://github.com/mahmoud595/ecommerce.git
+   cd e-commerce
+   ```
+
+2. Install dependencies
+   ```bash
+   yarn install
+   # or
    npm install
    ```
 
-2. Start the app
+### Running the App
 
-   ```bash
-    npx expo start
-   ```
-
-In the output, you'll find options to open the app in a
-
-- [development build](https://docs.expo.dev/develop/development-builds/introduction/)
-- [Android emulator](https://docs.expo.dev/workflow/android-studio-emulator/)
-- [iOS simulator](https://docs.expo.dev/workflow/ios-simulator/)
-- [Expo Go](https://expo.dev/go), a limited sandbox for trying out app development with Expo
-
-You can start developing by editing the files inside the **app** directory. This project uses [file-based routing](https://docs.expo.dev/router/introduction).
-
-## Get a fresh project
-
-When you're ready, run:
+#### Start the development server
 
 ```bash
-npm run reset-project
+yarn start
+# or
+npm start
 ```
 
-This command will move the starter code to the **app-example** directory and create a blank **app** directory where you can start developing.
+#### Run on Android
 
-## Learn more
+```bash
+yarn android
+# or
+npm run android
+```
 
-To learn more about developing your project with Expo, look at the following resources:
+#### Run on iOS
 
-- [Expo documentation](https://docs.expo.dev/): Learn fundamentals, or go into advanced topics with our [guides](https://docs.expo.dev/guides).
-- [Learn Expo tutorial](https://docs.expo.dev/tutorial/introduction/): Follow a step-by-step tutorial where you'll create a project that runs on Android, iOS, and the web.
+```bash
+yarn ios
+# or
+npm run ios
+```
 
-## Join the community
+### Testing
 
-Join our community of developers creating universal apps.
+#### Run unit and integration tests
 
-- [Expo on GitHub](https://github.com/expo/expo): View our open source platform and contribute.
-- [Discord community](https://chat.expo.dev): Chat with Expo users and ask questions.
+```bash
+yarn test
+# or
+npm test
+```
+
+#### Run E2E tests
+
+```bash
+yarn test:e2e
+# or
+npm run test:e2e
+```
+
+## Environment Variables
+
+The app uses environment variables for configuration. Create a `.env` file in the root directory with the following variables:
+
+```
+API_URL=https://your-api-url.com
+```
+
+## Contributing
+
+1. Fork the repository
+2. Create your feature branch (`git checkout -b feature/amazing-feature`)
+3. Commit your changes (`git commit -m 'Add some amazing feature'`)
+4. Push to the branch (`git push origin feature/amazing-feature`)
+5. Open a Pull Request
+
+## License
+
+This project is licensed under the MIT License - see the LICENSE file for details.
